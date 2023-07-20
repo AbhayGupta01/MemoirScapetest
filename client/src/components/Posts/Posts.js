@@ -29,7 +29,7 @@ if(!posts.length && !isLoading) return 'No Posts';
 //the curly braces in a function means we are executing multiple lines of code.
 
 //if we dont find the array show circle
-isLoading ? <CircularProgress/> : (
+ (
   <Grid   className={classes.container} container spacing={3} >
   {
     posts.map((post) => (
