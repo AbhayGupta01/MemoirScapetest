@@ -91,7 +91,7 @@ const Auth = () => {
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <LockedOutLinedIcon />
         </Avatar>
         <Typography variant="h5">{issignUp ? "Sign Up" : "Sign In"}</Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
