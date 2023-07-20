@@ -47,8 +47,6 @@ export default ( state = { isLoading:true, posts: [] }, action)=>{
         return post;
       }),
     };
-
-      break;
     default:
     return state
 

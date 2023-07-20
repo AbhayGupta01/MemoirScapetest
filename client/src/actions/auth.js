@@ -1,5 +1,5 @@
 import {AUTH} from '../constants/actionTypes';
-import * as api from '../api';
+import * as api from '../api/index';
 
 //redux flow #2 dispaching this whole action
 
