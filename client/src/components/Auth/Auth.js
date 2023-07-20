@@ -7,13 +7,13 @@ import jwtDecode from "jwt-decode";
 import {useDispatch} from 'react-redux';
 import {useNavigate } from 'react-router-dom';
 import { signIn, signUp} from '../../actions/auth';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
 import Icon from './icon'
 import Input from './Input';
 import useStyles from './styles';
 
-dotenv.config();
+// dotenv.config();
 const initialState = { firstName: '',
                        lastName: '',
                        email: '',
@@ -137,7 +137,7 @@ const Auth = () => {
        className={classes.submit}>
         { isSignUp? 'Sign Up':'Sign In'}
       </Button>
-      <GoogleOAuthProvider clientId= {process.env.CLIENT_ID} >      
+      <GoogleOAuthProvider clientId= "475103278644-66bie9o2jk98v69ipl0dnkl1sa932c6b.apps.googleusercontent.com" >      
       <GoogleLogin
         
         render={(renderProps) => (
