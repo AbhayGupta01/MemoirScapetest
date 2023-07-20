@@ -25,24 +25,24 @@ console.log('posts refreshed from posts component');
 if(!posts.length && !isLoading) return 'No Posts';
 
 
-  return (
+  return isLoading ?(
 //ternerary operator
 //0is a falsy value
 //The parenthesis in a function means we are returning a single value,
 //the curly braces in a function means we are executing multiple lines of code.
 
 //if we dont find the array show circle
-isLoading ? <CircularProgress/> : (
+ <CircularProgress/>
+ ) : (
   <Grid className={classes.container} container spacing={3} >
   {
-    posts.map((post) => (
+    posts?.map((post) => (
       <Grid key={post._id} item xs={12} sm={12} md={6} lg={3} >
       <Post post={post} setCurrentId={setCurrentId}/>
       </Grid>
     ))
   }
   </Grid>
-)
   );
 }
 

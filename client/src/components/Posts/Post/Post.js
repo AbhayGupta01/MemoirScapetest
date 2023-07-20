@@ -25,11 +25,11 @@ const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   const [likes, setLikes] = useState(post?.likes);
 
-  const user = JSON.parse(localStorage.getItem("profile"));
-  const userId = user?.result?.sub || user?.result?._id;
+  const userId = user?.result?.googleId || user?.result?._id;
 
   const hasLikedPost = likes.find((like) => like === userId);
   
@@ -81,7 +81,7 @@ const Post = ({ post, setCurrentId }) => {
     <Typography variant='body2'>{moment(post.createdAt).fromNow()}  </Typography>
     </div>
   
-    {(user?.result?.sub === post?.creator ||  user?.result?._id ===  post?.creator) && (
+    {(user?.result?.googleId === post?.creator ||  user?.result?._id ===  post?.creator) && (
       <div className={classes.overlay2}>
       <Button style={{color:'white'}} size='small' onClick={()=>setCurrentId(post._id)}>
       <MoreHorizRounded fontSize='medium'/>
@@ -115,7 +115,7 @@ const Post = ({ post, setCurrentId }) => {
         >
           <Likes />
         </Button>
-        {(user?.result?.sub === post?.creator ||
+        {(user?.result?.googleId === post?.creator ||
           user?.result?._id === post?.creator) && (
           <Button
             size="small"
