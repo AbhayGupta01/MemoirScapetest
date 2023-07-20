@@ -34,6 +34,10 @@ function useQuery() {
   const [tags, setTags] = useState([]);
 
   console.log('page is ' +page);
+  console.log(query);
+  console.log("currentId = "+currentId);
+  console.log("setCurrentId = "+setCurrentId);
+
 
 
   //updates component
