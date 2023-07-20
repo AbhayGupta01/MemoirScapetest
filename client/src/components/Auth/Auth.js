@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Avatar,TextField, Button, Paper, Grid, Typography, Container} from '@material-ui/core';
-import LockedOutLinedIcon from '@/material-ui/icons/LockOutlined'
+import LockedOutLinedIcon from '@material-ui/icons/LockOutlined';
 import {GoogleLogin} from '@react-oauth/google';
 // import { GoogleOAuthProvider } from '@react-oauth/google';
 // import jwtDecode from "jwt-decode";
@@ -91,7 +91,7 @@ const Auth = () => {
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
         <Avatar className={classes.avatar}>
-          <LockedOutLinedIcon />
+          <LockedOutLinedIcon/>
         </Avatar>
         <Typography variant="h5">{issignUp ? "Sign Up" : "Sign In"}</Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
