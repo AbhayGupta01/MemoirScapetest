@@ -22,7 +22,7 @@ const Posts = ({setCurrentId}) =>{
 // console.log(isLoading);
 console.log('posts refreshed from posts component');
 
-if(posts?.length === 0 && !isLoading) return 'No Posts';
+if(!posts.length && !isLoading) return 'No Posts';
 
 
   return (
@@ -33,9 +33,9 @@ if(posts?.length === 0 && !isLoading) return 'No Posts';
 
 //if we dont find the array show circle
 isLoading ? <CircularProgress/> : (
-  <Grid   className={classes.container} container spacing={3} >
+  <Grid className={classes.container} container spacing={3} >
   {
-    posts?.map((post) => (
+    posts.map((post) => (
       <Grid key={post._id} item xs={12} sm={12} md={6} lg={3} >
       <Post post={post} setCurrentId={setCurrentId}/>
       </Grid>
