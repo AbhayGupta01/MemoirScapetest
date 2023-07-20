@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // const API = axios.create({ baseUrl: 'http://localhost:5000'});
 // const API = axios.create({ baseUrl: 'https://social-memories-app-1.herokuapp.com'});
-const API = axios.create({ baseUrl: 'https://memoirscapeserver.onrender.com/'});
+const API = axios.create({ baseUrl: 'https://memoirscapeserver.onrender.com'});
 
 
 //
