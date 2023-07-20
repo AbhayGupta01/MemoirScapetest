@@ -22,7 +22,7 @@ const Posts = ({setCurrentId}) =>{
 // console.log(isLoading);
 console.log('posts refreshed from posts component');
 
-if(posts.length === 0 && !isLoading) return 'No Posts';
+if(posts?.length !== 0 && !isLoading) return 'No Posts';
 
 
   return isLoading ?(
