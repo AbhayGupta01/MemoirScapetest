@@ -17,9 +17,9 @@ const Posts = ({setCurrentId}) =>{
   const classes = useStyles();
 
 
-console.log(setCurrentId);
-console.log(posts.length);
-console.log(isLoading);
+// console.log(setCurrentId);
+// console.log(posts.length);
+// console.log(isLoading);
 console.log('posts refreshed from posts component');
 
 if(!posts.length && !isLoading) return 'No Posts';
