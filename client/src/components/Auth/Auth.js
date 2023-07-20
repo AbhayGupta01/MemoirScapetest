@@ -1,9 +1,22 @@
+import React, {useState, useEffect} from 'react';
+import {Avatar,TextField, Button, Paper, Grid, Typography, Container} from '@material-ui/core';
+import LockedOutLinedIcon from '@/material-ui/icons/LockOutlined'
+import {GoogleLogin} from '@react-oauth/google';
+// import { GoogleOAuthProvider } from '@react-oauth/google';
+// import jwtDecode from "jwt-decode";
+import {useDispatch} from 'react-redux';
+import {useNavigate } from 'react-router-dom';
+import { signIn, signUp} from '../../actions/auth';
+// import dotenv from 'dotenv';
 
-import useStyles from "./styles";
+import Icon from './icon'
+import Input from './Input';
+import useStyles from './styles';
+// import useStyles from "./styles";
 import { gapi } from "gapi-script";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { signIn, signUp } from "../../actions/auth";
+// import { useDispatch } from "react-redux";
+// import { useNavigate } from "react-router-dom";
+// import { signIn, signUp } from "../../actions/auth";
 import dotenv from "dotenv";
 
 dotenv.config();
