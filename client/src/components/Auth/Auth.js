@@ -3,7 +3,7 @@ import useStyles from "./styles";
 import { gapi } from "gapi-script";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { signin, signup } from "../../actions/auth";
+import { signIn, signUp } from "../../actions/auth";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -21,16 +21,16 @@ const Auth = () => {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(true);
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [issignUp, setIssignUp] = useState(false);
   const [formData, setFormData] = useState(initialState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isSignUp) {
-      dispatch(signup(formData, navigate));
+    if (issignUp) {
+      dispatch(signUp(formData, navigate));
     } else {
-      dispatch(signin(formData, navigate));
+      dispatch(signIn(formData, navigate));
     }
   };
 
@@ -42,7 +42,7 @@ const Auth = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
 
   const switchMode = () => {
-    setIsSignUp((prevIsSignUp) => !prevIsSignUp);
+    setIssignUp((prevIssignUp) => !prevIssignUp);
     setShowPassword(false);
   };
 
@@ -80,10 +80,10 @@ const Auth = () => {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography variant="h5">{isSignUp ? "Sign Up" : "Sign In"}</Typography>
+        <Typography variant="h5">{issignUp ? "Sign Up" : "Sign In"}</Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            {isSignUp && (
+            {issignUp && (
               <>
                 <Input
                   name="firstName"
@@ -114,7 +114,7 @@ const Auth = () => {
               handleShowPassword={handleShowPassword}
               autoComplete
             />
-            {isSignUp && (
+            {issignUp && (
               <Input
                 name="confirm Password"
                 label="Repeat Password"
@@ -130,7 +130,7 @@ const Auth = () => {
             color="primary"
             className={classes.submit}
           >
-            {isSignUp ? "Sign Up" : "Sign In"}
+            {issignUp ? "Sign Up" : "Sign In"}
           </Button>
         </form>
         <GoogleLogin
@@ -155,7 +155,7 @@ const Auth = () => {
         <Grid container justifyContent="center">
           <Grid item>
             <Button onClick={switchMode}>
-              {isSignUp
+              {issignUp
                 ? "Already have an Account? Sign In"
                 : "Don't have an Account? Sign Up"}
             </Button>
@@ -200,7 +200,7 @@ export default Auth;
 //   const navigate = useNavigate();
 
 //   const  [showPassword, setShowPassword] = useState(false)
-//   const [isSignUp, setIsSignUp] = useState(false)
+//   const [issignUp, setIssignUp] = useState(false)
 //   const [formData, setFormData] = useState(initialState);
   
 
@@ -210,7 +210,7 @@ export default Auth;
 //   const handleSubmit = (event)=>{
 //     event.preventDefault();
 
-//     if(isSignUp){
+//     if(issignUp){
 //       //pass the form data so we can have it in our db
 //       //navigate once something happens
 
@@ -231,7 +231,7 @@ export default Auth;
 
 
 //   const switchMode = ()=>{
-//     setIsSignUp((prevIsSignUp) => !prevIsSignUp);
+//     setIssignUp((prevIssignUp) => !prevIssignUp);
 //     setShowPassword(false);
 //   }
 
@@ -267,11 +267,11 @@ export default Auth;
 //     <Avatar className={classes.avatar}>
 //       <LockedOutLinedIcon/>
 //     </Avatar>
-//     <Typography variant='h5'>{isSignUp?'Sign Up':'Sign In'}</Typography>
+//     <Typography variant='h5'>{issignUp?'Sign Up':'Sign In'}</Typography>
 //     <form className={classes.form} onSubmit={handleSubmit}>
 //       <Grid container spacing={2}>
 //       {
-//         isSignUp && (
+//         issignUp && (
 //           <>
 //             <Input
 //               name='firstName'
@@ -300,7 +300,7 @@ export default Auth;
 //          handleChange={handleChange}
 //           type={showPassword?'text':'password'}
 //           handleShowPassword={handleShowPassword}/>
-//         { isSignUp && <Input name='confirmPassword' label ='Repeat Password' handleChange={handleChange} type='password'/>}
+//         { issignUp && <Input name='confirmPassword' label ='Repeat Password' handleChange={handleChange} type='password'/>}
 //       </Grid>
 
 //       <Button
@@ -309,7 +309,7 @@ export default Auth;
 //        variant='contained'
 //        color='primary'
 //        className={classes.submit}>
-//         { isSignUp? 'Sign Up':'Sign In'}
+//         { issignUp? 'Sign Up':'Sign In'}
 //       </Button>
 //       <GoogleOAuthProvider clientId= "475103278644-66bie9o2jk98v69ipl0dnkl1sa932c6b.apps.googleusercontent.com" >      
 //       <GoogleLogin
@@ -334,7 +334,7 @@ export default Auth;
 //       <Grid container justifyContent='flex-start' className={classes.signUp}>
 //         <Grid item>
 //           <Button variant='contained' onClick={switchMode}>
-//             { isSignUp? 'Already Have An Account ? Sign In':'Dont Have An Account ? Sign Up'}
+//             { issignUp? 'Already Have An Account ? Sign In':'Dont Have An Account ? Sign Up'}
 //           </Button>
 //         </Grid>
 //       </Grid>
