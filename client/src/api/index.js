@@ -22,7 +22,7 @@ API.interceptors.request.use((req)=>{
 const url = "https://memoirscapeserver.onrender.com/posts"
 //#4 req
 export const fetchPosts = (page) => API.get(`${url}/posts?page=${page}`);
-export const createPost = (newPost) => API.post('${url}/posts', newPost)
+export const createPost = (newPost) => API.post('/posts', newPost)
 //send a patch req
 export const updatePost = (id, updatedPost) => API.patch(`${url}/posts/${id}`,updatedPost)
 export const deletePost = (id) => API.delete(`${url}/posts/${id}`);
