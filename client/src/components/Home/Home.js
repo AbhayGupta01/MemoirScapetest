@@ -40,10 +40,10 @@ function useQuery() {
   //**
 
   //on every chage of id and refresh we are going to get new post
-  // useEffect(()=>{
-  //   console.log('refresh from home');
-  //   dispatch(getPosts());
-  // }, [currentId, dispatch]);
+  useEffect(()=>{
+    console.log('refresh from home');
+    dispatch(getPosts());
+  }, [currentId, dispatch]);
 
 const searchPost = () => {
   //removes whitespace
@@ -108,13 +108,10 @@ const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag!== tagToD
                 </Paper>
               )
             }
-
-
           </Grid>
         </Grid>
     </Container>
     </Grow>
-
   )
 }
 

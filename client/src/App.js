@@ -4,9 +4,9 @@ import {Container} from '@material-ui/core';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 
-import {getPosts} from './actions/posts'
+// import {getPosts} from './actions/posts'
 import Navbar from './components/Navbar/Navbar'
-import useStyles from './styles';
+// import useStyles from './styles';
 
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
