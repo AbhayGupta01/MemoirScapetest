@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-
+import axios from 'axios';
 
 
 // user wants to like a posts
@@ -20,13 +20,21 @@ const auth = async (req, res, next) => {
       decodedData = jwt.verify(token, 'test')
       req.userId = decodedData?.id
     } else {
-      //google oauth token
-      decodedData = jwt.decode(token);
+      const { data } = await axios.get(
+        'https://www.googleapis.com/oauth2/v3/userinfo',
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
 
-      console.log(decodedData);
-      //sub is googles word for id
-      req.userId = decodedData?.sub;
+      req.user = { username: data?.name, userId: data?.sub };
     }
+    // else {
+    //   //google oauth token
+    //   decodedData = jwt.decode(token);
+
+    //   console.log(decodedData);
+    //   //sub is googles word for id
+    //   req.userId = decodedData?.sub;
+    // }
     next();
 
   } catch (err) {
