@@ -11,6 +11,7 @@ import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 import PostDetails from './components/PostDetails/PostDetails';
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const App = () =>{
   const [change, setChange] = useState(false)
@@ -18,6 +19,7 @@ const App = () =>{
 
 
 return (
+<GoogleOAuthProvider clientId={`${process.env.CLIENT_ID}`}>
 <BrowserRouter>
   <Container maxWidth='xl'>
   <Navbar change={change} setChange={setChange}/>
@@ -30,6 +32,7 @@ return (
     </Routes>
   </Container>
 </BrowserRouter>
+</GoogleOAuthProvider>
   );
 }
 

@@ -12,7 +12,7 @@ import {useDispatch} from 'react-redux'
 import {useNavigate, Link, useLocation} from 'react-router-dom'
 
 import decode from 'jwt-decode';
-
+import { googleLogout } from "@react-oauth/google";
 
 import useStyles from './styles';
 
@@ -26,6 +26,7 @@ const Navbar = ({change, setChange}) => {
 
 
    const logout =()=>{
+    googleLogout();
     dispatch({type:'LOGOUT'});
     navigate('/');
     setUser(null);
