@@ -188,7 +188,7 @@ import {Avatar,TextField, Button, Paper, Grid, Typography, Container} from '@mat
 import LockedOutLinedIcon from '@material-ui/icons/LockOutlined'
 import {GoogleLogin} from '@react-oauth/google';
 // import { GoogleOAuthProvider } from '@react-oauth/google';
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 import {useDispatch} from 'react-redux';
 import {useNavigate } from 'react-router-dom';
 import { signIn, signUp} from '../../actions/auth';
@@ -251,7 +251,7 @@ const Auth = () => {
 
   const googleSuccess = async (res) => {
     // this makes sure we dont get an error if it fails ('?.'')
-    const result = jwt_decode(decoded.credential); //undefined
+    const result = jwtDecode(decoded.credential); //undefined
     const token = res?.credential;
 
       //since using async fun we can use try and catch
