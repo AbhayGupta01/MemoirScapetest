@@ -19,22 +19,15 @@ const auth = async (req, res, next) => {
       //this gives us data from token
       decodedData = jwt.verify(token, 'test')
       req.userId = decodedData?.id
-    } else {
-      const { data } = await axios.get(
-        'https://www.googleapis.com/oauth2/v3/userinfo',
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+    } 
+    else {
+      //google oauth token
+      decodedData = jwt.decode(token);
 
-      req.user = { username: data?.name, userId: data?.sub };
+      console.log(decodedData);
+      //sub is googles word for id
+      req.userId = decodedData?.googleId;
     }
-    // else {
-    //   //google oauth token
-    //   decodedData = jwt.decode(token);
-
-    //   console.log(decodedData);
-    //   //sub is googles word for id
-    //   req.userId = decodedData?.sub;
-    // }
     next();
 
   } catch (err) {
