@@ -15,14 +15,8 @@ import * as api from '../api/index';
 export const getPosts = (page) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const {
-      data: { data, currentPage, numberOfPages },
-    } = await api.fetchPosts(page);
-
-    dispatch({
-      type: FETCH_ALL,
-      payload: { data, currentPage, numberOfPages },
-    });
+    const { data } = await api.fetchPosts(page);
+    dispatch({ type: FETCH_ALL, payload: data });
     dispatch({ type: END_LOADING });
   } catch (error) {
     console.log(error);
@@ -91,7 +85,7 @@ export const getPostBySearch = (searchQuery) => async (dispatch) => {
     console.log('SEARCH QUERY ACTIVATED');
     dispatch({ type: START_LOADING });
     const {data: { data } } = await api.fetchPostsBySearch(searchQuery);
-    dispatch({type: FETCH_BY_SEARCH, payload: {data}});
+    dispatch({type: FETCH_BY_SEARCH, payload: data});
     dispatch({ type: END_LOADING });
     console.log(data);
   } catch (err) {
@@ -109,7 +103,7 @@ try {
   const { data } = await api.fetchPost(id);
 
 
-  dispatch({type: FETCH_POST, payload: { post : data}});
+  dispatch({type: FETCH_POST, payload: data.post});
   dispatch({ type: END_LOADING });
 
 } catch (err) {
