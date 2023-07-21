@@ -30,7 +30,7 @@ const Navbar = ({change, setChange}) => {
     navigate('/');
     setUser(null);
     //addd this to reload react components
-    setChange((prev)=> !prev )
+    // setChange((prev)=> !prev )
   }
 
 
