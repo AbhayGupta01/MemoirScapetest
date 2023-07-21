@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import axios from 'axios';
+
 
 
 // user wants to like a posts
