@@ -251,7 +251,7 @@ const Auth = () => {
 
   const googleSuccess = async (res) => {
     // this makes sure we dont get an error if it fails ('?.'')
-    const result = jwtDecode(decoded.credential); //undefined
+    const result = jwtDecode(res.credential); //undefined
     const token = res?.credential;
 
       //since using async fun we can use try and catch
