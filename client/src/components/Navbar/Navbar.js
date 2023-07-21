@@ -28,9 +28,9 @@ const Navbar = ({change, setChange}) => {
    const logout =()=>{
     dispatch({type:'LOGOUT'});
     navigate('/');
-    setUser(0);
+    setUser(null);
     //addd this to reload react components
-    setChange((prev)=> !prev )
+    // setChange((prev)=> !prev )
   }
 
 
